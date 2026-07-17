@@ -1,4 +1,4 @@
-import { CONTACT_INFO } from '../../data/constants';
+import { CONTACT_INFO, GENERAL_CONTACT_MAILTO } from '../../data/constants';
 import { locationPhoto } from '../../data/images';
 import { Eyebrow } from '../ui';
 
@@ -40,7 +40,7 @@ export default function Location() {
 
           <div className="location-actions">
             <a href={CONTACT_INFO.directionsUrl} target="_blank" rel="noopener" className="btn btn-primary">Get Directions</a>
-            <a href="#contact" className="btn btn-ghost">Contact Us</a>
+            <a href={GENERAL_CONTACT_MAILTO} className="btn btn-ghost">Contact Us</a>
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 import { HERO_STATS } from '../../data/constants';
 import { Counter } from '../ui';
 
-export default function Hero({ onOpenHire }) {
+export default function Hero({ onOpenHire, onOpenContact }) {
   return (
     <section className="hero" id="home">
       <svg className="hero-bg" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +42,7 @@ export default function Hero({ onOpenHire }) {
         </p>
         <div className="hero-actions">
           <button type="button" className="btn btn-primary" onClick={onOpenHire}>Hire Talent</button>
-          <a href="#contact" className="btn btn-outline">Contact Us</a>
+          <button type="button" className="btn btn-outline" onClick={onOpenContact}>Contact Us</button>
           <a
             href="https://www.facebook.com/TriangleOutsourcingCorp"
             target="_blank"

@@ -1,13 +1,20 @@
 import { useState } from 'react';
-import { CONTACT_INFO, SERVICE_OPTIONS } from '../../data/constants';
+import { APPLICATION_BENEFITS } from '../../data/constants';
 import { sendContactEmail } from '../../lib/mailer';
-import { Eyebrow, Field, Dropdown, Button } from '../ui';
+import { Eyebrow, Field, Button } from '../ui';
 
-const INITIAL = { name: '', email: '', phone: '', message: '' };
+const INITIAL = {
+  name: '',
+  phone: '',
+  upworkProfile: '',
+  upworkEmail: '',
+  facebookProfile: '',
+  experience: '',
+  tools: '',
+};
 
 export default function Contact() {
   const [form, setForm] = useState(INITIAL);
-  const [service, setService] = useState(SERVICE_OPTIONS[0]);
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
@@ -21,12 +28,11 @@ export default function Contact() {
     setLoading(true);
     setError('');
     try {
-      await sendContactEmail({ ...form, service });
+      await sendContactEmail({ ...form });
       setSent(true);
       setTimeout(() => {
         setSent(false);
         setForm(INITIAL);
-        setService(SERVICE_OPTIONS[0]);
       }, 2800);
     } catch (err) {
       setError("Something went wrong sending that — please try again, or email us directly.");
@@ -38,59 +44,61 @@ export default function Contact() {
   return (
     <section className="contact" id="contact">
       <div className="wrap contact-grid">
-        <div className="contact-info">
-          <Eyebrow style={{ color: 'var(--teal-dim)' }}>GET IN TOUCH</Eyebrow>
-          <h2>Let's talk about your outsourcing needs</h2>
-          <p>Tell us what your business needs and we'll help you find the right professional for the job.</p>
-
-          <div className="info-row">
-            <div className="ic">
-              <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
-            </div>
-            <div><div className="label">Address</div><div className="val">{CONTACT_INFO.address}</div></div>
-          </div>
-          <div className="info-row">
-            <div className="ic">
-              <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L8 9.7a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z" /></svg>
-            </div>
-            <div><div className="label">Phone</div><div className="val"><a href={CONTACT_INFO.phoneHref}>{CONTACT_INFO.phone}</a></div></div>
-          </div>
-          <div className="info-row">
-            <div className="ic">
-              <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8"><rect x="3" y="3" width="18" height="18" rx="4" /><path d="M15 8h-2a2 2 0 00-2 2v2H9v3h2v5h3v-5h2l1-3h-3v-1a1 1 0 011-1h2z" /></svg>
-            </div>
-            <div><div className="label">Facebook</div><div className="val"><a href={CONTACT_INFO.facebook} target="_blank" rel="noopener">{CONTACT_INFO.facebookLabel}</a></div></div>
-          </div>
-        </div>
-
         <form className="contact-form" onSubmit={handleSubmit}>
+          <Eyebrow style={{ color: 'var(--teal-dim)' }}>APPLY NOW</Eyebrow>
+          <h2>Application Form</h2>
+          <p className="form-intro">
+            Ready to join our appointment setting and cold calling team? Fill out the form below and
+            we'll be in touch.
+          </p>
+
           <div className="form-row">
             <Field label="Name" id="name" required placeholder="Your full name" value={form.name} onChange={update('name')} />
-            <Field label="Email" id="email" type="email" required placeholder="you@company.com" value={form.email} onChange={update('email')} />
+            <Field label="Contact Number" id="phone" type="tel" required placeholder="+63 900 000 0000" value={form.phone} onChange={update('phone')} />
           </div>
           <div className="form-row">
-            <Field label="Phone" id="phone" type="tel" placeholder="+63 900 000 0000" value={form.phone} onChange={update('phone')} />
-            <Dropdown label="Service Needed" id="serviceLabel" options={SERVICE_OPTIONS} value={service} onChange={setService} />
+            <Field label="Upwork Profile Link" id="upworkProfile" type="url" required placeholder="https://www.upwork.com/freelancers/..." value={form.upworkProfile} onChange={update('upworkProfile')} />
+            <Field label="Upwork Email Address" id="upworkEmail" type="email" required placeholder="you@example.com" value={form.upworkEmail} onChange={update('upworkEmail')} />
+          </div>
+          <div className="form-row">
+            <Field label="Facebook Profile Link" id="facebookProfile" type="url" placeholder="https://www.facebook.com/..." value={form.facebookProfile} onChange={update('facebookProfile')} />
+            <Field label="Years of Experience (Appointment Setting / Cold Calling)" id="experience" type="text" inputMode="numeric" required placeholder="e.g. 3 years" value={form.experience} onChange={update('experience')} />
           </div>
           <div className="form-row">
             <Field
-              label="Message"
-              id="message"
+              label="Tools You've Handled (CRM / Dialer)"
+              id="tools"
               as="textarea"
               rows={4}
               full
-              placeholder="Tell us about your team needs..."
-              value={form.message}
-              onChange={update('message')}
+              required
+              placeholder="e.g. HubSpot, Salesforce, Mojo Dialer, RingCentral..."
+              value={form.tools}
+              onChange={update('tools')}
             />
           </div>
           <Button type="submit" variant="primary" loading={loading}>
-            {sent ? 'Message sent ✓' : 'Send Message'}
+            {sent ? 'Application sent ✓' : 'Submit'}
           </Button>
           <div className="form-note">
             {error || 'We usually respond within one business day.'}
           </div>
         </form>
+
+        <div className="benefits-card">
+          <Eyebrow style={{ color: 'var(--teal-dim)' }}>WHY JOIN US</Eyebrow>
+          <h2>Why Join Triangle Outsourcing?</h2>
+          <ul className="benefits-list">
+            {APPLICATION_BENEFITS.map((item) => (
+              <li className="benefit-item" key={item}>
+                <span className="benefit-check">
+                  <svg viewBox="0 0 24 24" fill="none" strokeWidth="2.4"><path d="M5 13l4 4L19 7" /></svg>
+                </span>
+                <span className="txt">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

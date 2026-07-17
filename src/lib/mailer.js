@@ -8,14 +8,16 @@ import {
 } from './emailjsConfig';
 
 /**
- * Contact Form
+ * Application Form (Appointment Setting / Cold Calling)
  */
 export function sendContactEmail({
   name,
-  email,
   phone,
-  service,
-  message,
+  upworkProfile,
+  upworkEmail,
+  facebookProfile,
+  experience,
+  tools,
 }) {
   return emailjs.send(
     EMAILJS_SERVICE_ID,
@@ -24,17 +26,26 @@ export function sendContactEmail({
       // Recipient
       to_email: HR_EMAIL,
 
-      // Sender
+      // Applicant
       name,
-      email,
+      email: upworkEmail,
 
-      // Contact Details
+      // Application Details
       phone: phone || 'N/A',
-      service: service || 'General Inquiry',
+      upwork_profile: upworkProfile || 'N/A',
+      upwork_email: upworkEmail || 'N/A',
+      facebook_profile: facebookProfile || 'N/A',
+      experience: experience || 'N/A',
+      tools: tools || 'N/A',
 
       // Email Content
-      title: service || 'General Inquiry',
-      message: message || 'N/A',
+      title: 'New Application - Appointment Setter / Cold Caller',
+      message: `Contact Number: ${phone || 'N/A'}
+Upwork Profile: ${upworkProfile || 'N/A'}
+Upwork Email: ${upworkEmail || 'N/A'}
+Facebook Profile: ${facebookProfile || 'N/A'}
+Years of Experience: ${experience || 'N/A'}
+Tools Handled: ${tools || 'N/A'}`,
 
       // Timestamp
       time: new Date().toLocaleString(),
@@ -72,6 +83,41 @@ export function sendHireEmail({
 
       // Email Content
       title: `Hire Talent - ${role}`,
+      message: message || 'N/A',
+
+      // Timestamp
+      time: new Date().toLocaleString(),
+    },
+    {
+      publicKey: EMAILJS_PUBLIC_KEY,
+    }
+  );
+}
+
+/**
+ * General Contact / Inquiry Form (the "Contact Us" modal)
+ * Reuses the same EmailJS template as the application form — the "title"
+ * field makes it clear in the inbox that this is a general inquiry, not
+ * a job application.
+ */
+export function sendGeneralContactEmail({
+  name,
+  email,
+  message,
+}) {
+  return emailjs.send(
+    EMAILJS_SERVICE_ID,
+    EMAILJS_CONTACT_TEMPLATE_ID,
+    {
+      // Recipient
+      to_email: HR_EMAIL,
+
+      // Sender
+      name,
+      email,
+
+      // Email Content
+      title: 'General Inquiry — Contact Us Form',
       message: message || 'N/A',
 
       // Timestamp

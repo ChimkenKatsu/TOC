@@ -3,7 +3,7 @@ import { NAV_LINKS, MOBILE_NAV_LINKS } from '../../data/constants';
 import { logo } from '../../data/images';
 import { Button } from '../ui';
 
-export default function Header({ onOpenHire }) {
+export default function Header({ onOpenHire, onOpenContact }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeId, setActiveId] = useState('home');
@@ -53,7 +53,7 @@ export default function Header({ onOpenHire }) {
             ))}
           </nav>
           <div className="nav-cta">
-            <a href="#contact" className="btn btn-outline">Contact Us</a>
+            <button type="button" className="btn btn-outline" onClick={onOpenContact}>Contact Us</button>
             <Button variant="primary" onClick={onOpenHire}>Hire Talent</Button>
             <button
               className={`menu-toggle ${mobileOpen ? 'open' : ''}`}

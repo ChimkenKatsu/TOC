@@ -13,14 +13,16 @@ import Location from './components/sections/Location';
 import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
 import HireModal from './components/sections/HireModal';
+import ContactModal from './components/sections/ContactModal';
 
 export default function App() {
   const [hireOpen, setHireOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <>
-      <Header onOpenHire={() => setHireOpen(true)} />
-      <Hero onOpenHire={() => setHireOpen(true)} />
+      <Header onOpenHire={() => setHireOpen(true)} onOpenContact={() => setContactOpen(true)} />
+      <Hero onOpenHire={() => setHireOpen(true)} onOpenContact={() => setContactOpen(true)} />
       <About />
       <CEOMessage />
       <Team />
@@ -29,10 +31,11 @@ export default function App() {
       <WhyUs />
       <Reviews />
       <Careers />
-      <Location />
+      <Location onOpenContact={() => setContactOpen(true)} />
       <Contact />
       <Footer />
       <HireModal open={hireOpen} onClose={() => setHireOpen(false)} />
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </>
   );
 }

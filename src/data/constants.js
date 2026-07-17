@@ -8,7 +8,7 @@ export const NAV_LINKS = [
   { href: '#why-us', label: 'Why Us' },
   { href: '#careers', label: 'Careers' },
   { href: '#location', label: 'Location' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#contact', label: 'Apply Now' },
 ];
 
 // Slightly longer list used in the mobile nav panel (includes anchors not in the desktop nav)
@@ -22,7 +22,7 @@ export const MOBILE_NAV_LINKS = [
   { href: '#reviews', label: 'Reviews' },
   { href: '#careers', label: 'Careers' },
   { href: '#location', label: 'Location' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#contact', label: 'Apply Now' },
 ];
 
 export const HERO_STATS = [
@@ -101,6 +101,15 @@ export const ROLE_OPTIONS = [
 
 export const TEAM_SIZE_OPTIONS = ['Just one', '2 to 5', '6 to 20', '20+'];
 
+export const APPLICATION_BENEFITS = [
+  'Long-term opportunities',
+  'Multiple US campaigns',
+  'Professional management team',
+  'Performance-based growth opportunities',
+  'Work with clients across different industries',
+  'Be matched with campaigns that fit your experience',
+];
+
 export const CONTACT_INFO = {
   address: '2nd Floor, MEA Prime Building, Benito Labao St, Iligan City, 9200 Lanao del Norte',
   phone: '0915 672 1879',
@@ -114,3 +123,7 @@ export const CONTACT_INFO = {
 };
 
 export const HR_EMAIL = 'triangle.humanresources@gmail.com';
+
+// Used by "Contact Us" buttons site-wide — opens the visitor's email client for
+// general inquiries, kept deliberately separate from the "Apply Now" application form.
+export const GENERAL_CONTACT_MAILTO = `mailto:${HR_EMAIL}?subject=${encodeURIComponent('General Inquiry — Triangle Outsourcing')}`;
