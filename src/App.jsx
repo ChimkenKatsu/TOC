@@ -7,7 +7,6 @@ import Team from './components/sections/Team';
 import Talent from './components/sections/Talent';
 import Services from './components/sections/Services';
 import WhyUs from './components/sections/WhyUs';
-import Reviews from './components/sections/Reviews';
 import Careers from './components/sections/Careers';
 import Location from './components/sections/Location';
 import Contact from './components/sections/Contact';
@@ -21,18 +20,19 @@ export default function App() {
 
   return (
     <>
-      <Header onOpenHire={() => setHireOpen(true)} onOpenContact={() => setContactOpen(true)} />
-      <Hero onOpenHire={() => setHireOpen(true)} onOpenContact={() => setContactOpen(true)} />
-      <About />
-      <CEOMessage />
-      <Team />
-      <Talent />
-      <Services />
-      <WhyUs />
-      <Reviews />
-      <Careers />
-      <Location onOpenContact={() => setContactOpen(true)} />
-      <Contact />
+      <Header onOpenContact={() => setContactOpen(true)} />
+      <main>
+        <Hero onOpenHire={() => setHireOpen(true)} />
+        <Services />
+        <About />
+        <Talent />
+        <CEOMessage />
+        <Team />
+        <WhyUs onOpenHire={() => setHireOpen(true)} />
+        <Careers />
+        <Contact />
+        <Location onOpenContact={() => setContactOpen(true)} />
+      </main>
       <Footer />
       <HireModal open={hireOpen} onClose={() => setHireOpen(false)} />
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />

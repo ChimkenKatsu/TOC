@@ -1,26 +1,17 @@
 import { WHY_LIST } from '../../data/constants';
-import { Eyebrow, Tri } from '../ui';
 
-export default function WhyUs() {
+export default function WhyUs({ onOpenHire }) {
   return (
-    <section className="why" id="why-us">
+    <section className="why" id="why-us" aria-labelledby="why-title">
       <div className="wrap why-grid">
         <div className="why-copy">
-          <Eyebrow>WHY CHOOSE US</Eyebrow>
-          <h2>An outsourcing partner built on follow-through</h2>
-          <p>
-            We keep our client base small enough to know every account by name, and every placement backed
-            by real training and management.
-          </p>
+          <p className="eyebrow">Working with Triangle</p>
+          <h2 id="why-title">Support that stays with you.</h2>
+          <button className="btn btn-primary" type="button" onClick={onOpenHire}>Talk to us about hiring ↗</button>
         </div>
-        <div className="why-list">
-          {WHY_LIST.map((item) => (
-            <div className="why-item" key={item}>
-              <Tri />
-              <span className="txt">{item}</span>
-            </div>
-          ))}
-        </div>
+        <ul className="why-list">
+          {WHY_LIST.map((item) => <li key={item}>{item}</li>)}
+        </ul>
       </div>
     </section>
   );

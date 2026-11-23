@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-col">
             <div className="footer-brand">
-              <span>Triangle Outsourcing</span>
+              <span>Triangle Outsourcing Corp</span>
             </div>
             <p className="footer-desc">
               A business process outsourcing company based in Iligan City, Philippines, connecting businesses

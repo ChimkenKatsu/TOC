@@ -1,5 +1,4 @@
 import { CONTACT_INFO, GENERAL_CONTACT_MAILTO } from '../../data/constants';
-import { locationPhoto } from '../../data/images';
 import { Eyebrow } from '../ui';
 
 export default function Location() {
@@ -8,17 +7,7 @@ export default function Location() {
       <div className="wrap location-grid">
         <div className="location-info">
           <Eyebrow style={{ color: 'var(--teal-dim)' }}>OUR LOCATION</Eyebrow>
-          <h2>Visit Triangle Outsourcing Corporation</h2>
-          <div className="location-sub">Proudly based in Iligan City, serving businesses worldwide.</div>
-          <p className="desc">
-            Located in the heart of Iligan City, Triangle Outsourcing Corporation operates from the MEA Prime
-            Building, providing businesses worldwide with trained and reliable remote professionals.
-          </p>
-
-          <div className="location-photo">
-            <img src={locationPhoto} alt="MEA Prime Building, Iligan City — home of Triangle Outsourcing Corporation" />
-          </div>
-
+          <h2>Find us in Iligan City.</h2>
           <div className="info-row">
             <div className="ic">
               <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>

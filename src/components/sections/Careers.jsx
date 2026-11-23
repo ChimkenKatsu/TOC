@@ -1,16 +1,15 @@
-import { Eyebrow } from '../ui';
-
 export default function Careers() {
   return (
-    <section className="careers" id="careers">
+    <section className="careers" id="careers" aria-labelledby="careers-title">
       <div className="wrap careers-inner">
-        <Eyebrow>CAREERS AT TRIANGLE</Eyebrow>
-        <h2>Join Our Growing Team</h2>
-        <p>
-          We are always looking for talented, motivated, and professional individuals who want to build their
-          careers in outsourcing, digital services, virtual assistance, teaching, and customer support.
-        </p>
-        <a href="#contact" className="btn btn-primary">Apply Now</a>
+        <div>
+          <p className="eyebrow">Careers</p>
+          <h2 id="careers-title">Work with us.</h2>
+        </div>
+        <div>
+          <p>Have experience in appointment setting or cold calling? Tell us about the roles you’ve held and the tools you use.</p>
+          <a href="#contact" className="btn btn-dark">Start your application ↓</a>
+        </div>
       </div>
     </section>
   );

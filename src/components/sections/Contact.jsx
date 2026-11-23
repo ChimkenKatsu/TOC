@@ -46,7 +46,7 @@ export default function Contact() {
       <div className="wrap contact-grid">
         <form className="contact-form" onSubmit={handleSubmit}>
           <Eyebrow style={{ color: 'var(--teal-dim)' }}>APPLY NOW</Eyebrow>
-          <h2>Application Form</h2>
+          <h2>Tell us about your experience.</h2>
           <p className="form-intro">
             Ready to join our appointment setting and cold calling team? Fill out the form below and
             we'll be in touch.
@@ -78,7 +78,7 @@ export default function Contact() {
             />
           </div>
           <Button type="submit" variant="primary" loading={loading}>
-            {sent ? 'Application sent ✓' : 'Submit'}
+            {sent ? 'Application sent ✓' : 'Send application'}
           </Button>
           <div className="form-note">
             {error || 'We usually respond within one business day.'}
@@ -87,7 +87,7 @@ export default function Contact() {
 
         <div className="benefits-card">
           <Eyebrow style={{ color: 'var(--teal-dim)' }}>WHY JOIN US</Eyebrow>
-          <h2>Why Join Triangle Outsourcing?</h2>
+          <h2>What to expect at Triangle</h2>
           <ul className="benefits-list">
             {APPLICATION_BENEFITS.map((item) => (
               <li className="benefit-item" key={item}>

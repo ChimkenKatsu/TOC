@@ -1,21 +1,20 @@
 import { TALENT_ITEMS } from '../../data/constants';
-import { SectionHead, Tri } from '../ui';
 
 export default function Talent() {
   return (
-    <section className="talent" id="talent">
-      <div className="wrap">
-        <SectionHead eyebrow="OUR EMPLOYEES" title="Trained talent, ready to deploy">
-          Every professional under Triangle Outsourcing goes through screening and training before joining a
-          client's team — reliable from the first day.
-        </SectionHead>
-        <div className="talent-grid">
+    <section className="talent" id="talent" aria-labelledby="talent-title">
+      <div className="wrap talent-layout">
+        <div className="section-head">
+          <p className="eyebrow">Who you can hire</p>
+          <h2 id="talent-title">Find the right role.</h2>
+          <p>Choose a role to see what that person can take on.</p>
+        </div>
+        <div className="talent-roles">
           {TALENT_ITEMS.map((item) => (
-            <div className="talent-cell" key={item.title}>
-              <Tri />
-              <h4>{item.title}</h4>
+            <details key={item.title} name="talent-roles">
+              <summary>{item.title}</summary>
               <p>{item.desc}</p>
-            </div>
+            </details>
           ))}
         </div>
       </div>

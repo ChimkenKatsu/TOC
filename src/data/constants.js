@@ -1,36 +1,5 @@
 // Static content used across the site's sections
 
-export const NAV_LINKS = [
-  { href: '#about', label: 'About' },
-  { href: '#leadership', label: 'Leadership' },
-  { href: '#talent', label: 'Talent' },
-  { href: '#services', label: 'Services' },
-  { href: '#why-us', label: 'Why Us' },
-  { href: '#careers', label: 'Careers' },
-  { href: '#location', label: 'Location' },
-  { href: '#contact', label: 'Apply Now' },
-];
-
-// Slightly longer list used in the mobile nav panel (includes anchors not in the desktop nav)
-export const MOBILE_NAV_LINKS = [
-  { href: '#about', label: 'About' },
-  { href: '#leadership', label: 'Leadership' },
-  { href: '#team', label: 'Management Team' },
-  { href: '#talent', label: 'Talent' },
-  { href: '#services', label: 'Services' },
-  { href: '#why-us', label: 'Why Us' },
-  { href: '#reviews', label: 'Reviews' },
-  { href: '#careers', label: 'Careers' },
-  { href: '#location', label: 'Location' },
-  { href: '#contact', label: 'Apply Now' },
-];
-
-export const HERO_STATS = [
-  { value: 5, decimals: 1, suffix: '★', label: 'Google Rating' },
-  { value: 8, decimals: 0, suffix: '+', label: 'Talent Categories' },
-  { value: null, display: 'Iligan', label: 'City Based Team' },
-];
-
 export const ABOUT_LIST = [
   'Digital marketing & lead generation',
   'Cold calling & appointment setting',
