@@ -7,7 +7,7 @@
     --cobalt-bright:#795515;
     --teal:#f4ca56;
     --teal-dim:#795515;
-    --paper:#f7f4ea;
+    --paper:#f3f0e7;
     --white:#FFFFFF;
     --slate:#57584e;
     --slate-light:#65665a;
@@ -113,7 +113,7 @@
   nav.links .btn{padding:9px 15px;}
   .menu-toggle{display:none;}
 
-  .hero{padding:clamp(48px,7vw,104px) 0;background:var(--teal);}
+  .hero{padding:clamp(48px,7vw,104px) 0;background:var(--paper);}
   .hero-inner{
     display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
     align-items:center;gap:clamp(28px,5vw,80px);
@@ -126,7 +126,7 @@
     font-size:clamp(46px,5.6vw,82px);font-weight:400;
     letter-spacing:-.055em;line-height:.98;margin-bottom:26px;
   }
-  .hero h1 em{display:block;color:inherit;font-weight:400;}
+  .hero h1 em{display:block;color:var(--cobalt);font-weight:400;}
   .hero .lead{max-width:36ch;color:var(--slate);font-size:clamp(16px,1.6vw,20px);}
   .hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:22px;margin-top:30px;}
   .hero-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;}
@@ -504,7 +504,7 @@
   .why-copy .btn{margin-top:26px;}
   .why-list{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;color:white;}
   .why-list li{padding:12px 0;border-top:1px solid #595951;font-size:14px;}
-  .careers{background:var(--teal);}
+  .careers{background:var(--paper);border-bottom:1px solid var(--line);}
   .careers-inner{align-items:center;}
   .careers-inner > div > p:not(.eyebrow){max-width:44ch;margin-bottom:20px;}
   .contact{background:var(--paper);border-bottom:1px solid var(--line);}

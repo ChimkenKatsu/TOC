@@ -11,7 +11,7 @@ export default function Hero({ onOpenHire }) {
             Build a remote team in the Philippines for sales, customer support, admin, and digital work.
           </p>
           <div className="hero-actions">
-            <button type="button" className="btn btn-dark" onClick={onOpenHire}>
+            <button type="button" className="btn btn-primary" onClick={onOpenHire}>
               Tell us who you need <span aria-hidden="true">↗</span>
             </button>
             <a href="#services" className="hero-link">Explore services <span aria-hidden="true">↓</span></a>
